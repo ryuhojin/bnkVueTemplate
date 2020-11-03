@@ -52,17 +52,23 @@ var formatter = {
      * @param {value} 입력받을 숫자 
      */
     formatNumberWithCommas(value){
-        if(!vlaue) return value
-        let _result = value.replace(/(^0+)/,"").replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        if(!value) return value
+        let _result = value.replace(/(^0+)/,'').replace(/,/gi, "");
+        _result = _result.replace(/\B(?=(\d{3})+(?!\d))/g,',');
+
         return _result;
     },
     formatWonWithCommas(value){
         if(!value) return value
-        return "￦"+numberWithCommas(value);
+        let _result = value.replace(/(^0+)/,'').replace(/,/gi, "").replace(/￦/gi,"");
+        _result = _result.replace(/\B(?=(\d{3})+(?!\d))/g,',');
+        return "￦"+_result;
     },
     formatDollarWithCommas(value){
         if(!value) return value
-        return "$"+numberWithCommas(value)
+        let _result = value.replace(/(^0+)/,'').replace(/,/gi, "").replace(/$/gi,"");
+        _result = _result.replace(/\B(?=(\d{3})+(?!\d))/g,',');
+        return "$"+_result;
     },
     /**
      * @name formatAccount

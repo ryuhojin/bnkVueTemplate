@@ -11,6 +11,7 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "@toast-ui/vue-grid": "^4.15.2",
     "axios": "^0.21.0",
     "lodash": "^4.17.20",
     "vue": "^2.5.2",

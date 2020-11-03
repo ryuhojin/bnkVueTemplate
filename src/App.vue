@@ -4,16 +4,19 @@
     <button @click="loading()">
       로딩시작 3초
     </button>
+    <input v-won v-model="number"/>
     <router-view/>
   </div>
 </template>
 
 <script>
 import bnkBridge from '@/utils/bnkBridge'
+
 export default {
   name: 'App',
   data: () => ({
-    isMobile:false
+    isMobile:false,
+    number:'',
   }),
   mounted () {
     this.onResize()

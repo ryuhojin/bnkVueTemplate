@@ -87,6 +87,7 @@ Vue.directive('number',{
         el.value = formatter.formatNumberWithCommas(el.value);
     },
     update: function(el){
+        console.log(el)
         el.value = formatter.formatNumberWithCommas(el.value);
     }
 })
