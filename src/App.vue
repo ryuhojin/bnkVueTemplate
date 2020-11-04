@@ -4,19 +4,23 @@
     <button @click="loading()">
       로딩시작 3초
     </button>
-    <input v-won v-model="number"/>
+    <ValidationProvider rules="number" v-slot="{ errors }">
+      <input v-model.trim="val"/>
+      <span>{{ errors[0] }}</span>
+      {{val}}
+    </ValidationProvider>
     <router-view/>
   </div>
 </template>
 
 <script>
 import bnkBridge from '@/utils/bnkBridge'
-
+import validation from '@/utils/validation'
 export default {
   name: 'App',
   data: () => ({
     isMobile:false,
-    number:'',
+    val:'',
   }),
   mounted () {
     this.onResize()

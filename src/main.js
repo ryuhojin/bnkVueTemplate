@@ -5,9 +5,9 @@ import App from '@/App'
 import router from '@/router'
 import store from '@/store'
 import Directive from '@/utils/directive'
-
+import { ValidationProvider } from 'vee-validate';
 Vue.prototype.$directive = Directive
-
+Vue.component('ValidationProvider', ValidationProvider);
 Vue.config.productionTip = false
 /* eslint-disable no-new */
 new Vue({
