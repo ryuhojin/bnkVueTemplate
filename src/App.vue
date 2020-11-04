@@ -1,14 +1,21 @@
 <template>
   <div id="app">
-    <h2>하이</h2>
     <button @click="loading()">
       로딩시작 3초
     </button>
-    <ValidationProvider rules="number" v-slot="{ errors }">
-      <input v-model.trim="val"/>
-      <span>{{ errors[0] }}</span>
-      {{val}}
-    </ValidationProvider>
+    <div>
+    <span>웹뷰이동</span>
+    <input v-model.trim="val"/>
+    <button @click="changeWebView(val)">
+      다른웹뷰 ->
+    </button>
+    </div>
+        
+    <!-- <ValidationProvider rules="number" v-slot="{ errors }"> -->
+
+      <br>
+      <!-- <span>{{ errors[0] }}</span> -->
+    <!-- </ValidationProvider> -->
     <router-view/>
   </div>
 </template>
@@ -41,6 +48,9 @@ export default {
     onResize () {
       this.isMobile = window.innerWidth < 600
       //추후 가로 세로 계산하여 인치로 변환 고려
+    },
+    changeWebView(url){
+      bnkBridge.requestFromWebView("OPEN_WEBVIEW",{action:'SUB',url:url})
     }
   }
 }

@@ -100,3 +100,15 @@ Vue.directive('account',{
         el.value = formatter.formatAccount(el.value);
     }
 })
+
+Vue.directive('notSpecial',{
+    bind: function(el) {
+        if (el.maxLength === -1) el.maxLength = '10';
+    },
+    inserted: function(el){
+        el.value = formatter.formatUseNotSpecialCharacters(el.value);
+    },
+    update: function(el){
+        el.value = formatter.formatUseNotSpecialCharacters(el.value);
+    }
+})

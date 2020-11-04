@@ -6,7 +6,10 @@ Vue.use(Vuex)
 import shared from './modules/shared'
 
 /**
- * @shared : 모바일 웹 공유데이터 
+ * @modules {
+ *            shared : 모바일 웹 공유데이터,
+ *            
+*           }
  */
 
 export default new Vuex.Store({

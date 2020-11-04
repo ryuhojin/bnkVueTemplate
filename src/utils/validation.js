@@ -1,3 +1,10 @@
+/**
+ * @name validation
+ * @company BNKSYSTEM - Mobile Business Front-end
+ * @date 2020-11-04
+ * @description : 입력값 검증을 위한 validation | npm install vee-validate
+ */
+
 import { extend } from 'vee-validate'
 import commonMessage from '@/message'
 /**
@@ -57,7 +64,7 @@ extend('korean', {
     validate: value => {
         return /^[ㄱ-ㅎ가-힣]*$/.test(value);
     },
-    message: commonMessage.VALID__KOREAN
+    message: commonMessage.VALID_KOREAN
 })
 /**
  * @name email
@@ -81,4 +88,11 @@ extend('number', {
         return /^[0-9]*$/.test(value);
     },
     message: commonMessage.VALID_NUMBER
+})
+
+extend('normal', {
+    validate: value => {
+        return /^[\s|ㄱ-ㅎ|가-힣|a-z|A-Z|0-9|\*]+$/.test(value);
+    },
+    message: commonMessage.VALID_NOMRAL
 })

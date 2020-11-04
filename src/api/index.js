@@ -10,6 +10,7 @@ const bnkApi = axios.create({
 
 bnkApi.interceptors.request.use(config => {
     bnkBridge.requestFromWebView("START_LOADING");
+    //config.csrf
     return config;
   }, error => {
     bnkBridge.requestFromWebView("END_LOADING");

@@ -1,10 +1,16 @@
 <template>
     <div>
-        프로젝트관리
+        
+        <h2>프로젝트 관리화면 테스트</h2>
+        <GridComp/>
     </div>
 </template>
 <script>
+import GridComp from '@/components/GridComp'
 export default {
-    name:'ProjectManagementView'
+    name:'ProjectManagementView',
+    components: {
+        GridComp
+    }
 }
 </script>

@@ -5,7 +5,6 @@
  * @description : 데이터 포맷팅 용 함수
  */
 
-
 var formatter = {
     /** 
      * @name formatDate
@@ -70,6 +69,17 @@ var formatter = {
         _result = _result.replace(/\B(?=(\d{3})+(?!\d))/g,',');
         return "$"+_result;
     },
+
+    /**
+     * @name formatUseNotSpecialCharacters
+     * @param {value} 입력 
+     * @description 특수문자삭제
+     */
+    formatUseNotSpecialCharacters(value){
+        if(!value) return value
+        return value.replace(/[\{\}\[\]\/?.,;:|\)*~`!^\-+<>@\#$%&\\\=\(\'\"]/gi,'')
+    },
+    
     /**
      * @name formatAccount
      * @param {value} 계좌번호 
